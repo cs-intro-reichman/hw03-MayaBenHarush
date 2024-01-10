@@ -16,7 +16,7 @@ public class UniqueChars {
         boolean again = false; // Flag that checks if a char already exists
         for( int i = 1; i< s.length() ; i++){ // iterate over an original str
             for( int j = 0 ; j < i; j++){ // iterate over an original str till the ith index
-                if( s.charAt(i) == s.charAt(j) ){ // racecar
+                if( s.charAt(i) == s.charAt(j) && s.charAt(i)!= 32 ){ // racecar
                     again = true;
                 }    
             }
