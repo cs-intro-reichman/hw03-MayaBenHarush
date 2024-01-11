@@ -22,25 +22,14 @@ public class Calendar {
 	    //// of the while loop with the necessary condition 
         int givenYear = Integer.parseInt(args[0]);
 	 	while (year < givenYear ) {		
-	 		year++;	
+            advance();
+            year++;	
         }
-        advance();
-	 	
-	 }
-	
-	 // Advances the date (day, month, year) and the day-of-the-week.
-	 // If the month changes, sets the number of days in this month.
-	 // Side effects: changes the static variables dayOfMonth, month, year, dayOfWeek, nDaysInMonth.
-	 private static void advance() {
-
-
-		
-			for( month = 1; month <= 12; month++){
+        for( month = 1; month <= 12; month++){
 				int countDays= nDaysInMonth( month , year);
 				for( dayOfMonth = 1 ; dayOfMonth<= countDays; dayOfMonth++){
 					
 					if (dayOfWeek == 1){
-						sundays++;
 						System.out.println( dayOfMonth + "/" + month + "/" + year + " Sunday");
 					}
 					else {
@@ -56,6 +45,28 @@ public class Calendar {
 
 				
 					
+					
+				}
+			}	
+        
+	 	
+	 }
+	
+	 // Advances the date (day, month, year) and the day-of-the-week.
+	 // If the month changes, sets the number of days in this month.
+	 // Side effects: changes the static variables dayOfMonth, month, year, dayOfWeek, nDaysInMonth.
+	 private static void advance() {
+
+
+		
+			for( month = 1; month <= 12; month++){
+				int countDays= nDaysInMonth( month , year);
+				for( dayOfMonth = 1 ; dayOfMonth<= countDays; dayOfMonth++){
+				
+					if( dayOfWeek == 7){
+						dayOfWeek = 0;
+					}
+					dayOfWeek++;
 					
 				}
 			}	
